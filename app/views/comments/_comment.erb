@@ -1,9 +1,0 @@
-<div class="span7">
-  <div class="well">
-    <h5><%= comment.user.name %></h5>
-    <p><%= comment.body %></p>
-  </div>
-</div>
-<% if can? :destroy, comment %>
-  <%= link_to "Delete", comment_url_helper(comment), method: :delete %>
-<% end %>
