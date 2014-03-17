@@ -17,6 +17,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'database_cleaner'
 end
 
 # Gems used only for assets and not required
