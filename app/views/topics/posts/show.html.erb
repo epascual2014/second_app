@@ -16,19 +16,18 @@
     <%= @post.user.name %>
   </small>
     <p><%= markdown @post.body %></p>
-  </div>
-   <div class="span8">
+  <div class="span8">
       <%= image_tag(@post.image.thumb.url) if @post.image? %>
   </div>
   <div class="span8">
-     <div><%= render partial: 'favorites/favorite', locals: { topic: @topic, post: @post} %>
+    <div><%= render partial: 'favorites/favorite', locals: { topic: @topic, post: @post} %>
     </div>
       <%= render partial: "comments/form", locals: {topic: @topic, post: @post, comment: @comment} %>
     <% if can? :destroy, @post %>
       <%= link_to "Delete Post", [@topic, @post], method: :delete, class: 'btn btn-large btn-primary btn-danger', confirm: 'Are you sure you want to delete this post?' %>
-      <% end %>
-    <div> 
+      <% end %> 
   </div>
       <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
-      <%= render partial: "comments/comment", collection: @comments %>
-</div>
+      <div class="js-comments>"
+        <%= render partial: "comments/comment", collection: @comments %>
+      </div>

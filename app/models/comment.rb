@@ -3,6 +3,8 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   attr_accessible :body
   after_create :send_favorites_emails
+
+  default_scope { order('updated_at DESC')}
   private
 
   def send_favorites_emails
